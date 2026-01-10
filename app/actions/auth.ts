@@ -71,7 +71,7 @@ export async function getCurrentUser() {
 
 export async function getAppMode() {
     return {
-        isDemoMode: process.env.NEXT_PUBLIC_DEMO_MODE === 'true',
+        isDemoMode: process.env.NEXT_PUBLIC_DEMO_MODE?.toLowerCase() === 'true',
         isConfigured: !!(process.env.NEXT_PUBLIC_USER_POOL_ID && process.env.NEXT_PUBLIC_USER_POOL_CLIENT_ID)
     }
 }

@@ -6,8 +6,16 @@ import { useAuth, UserRole } from '@/lib/auth-context';
 import PageHeader from '@/components/PageHeader/PageHeader';
 
 export default function LoginPage() {
-    const { demoLogin, cognitoLogin, isDemoMode } = useAuth();
+    const { demoLogin, cognitoLogin, isDemoMode, isLoading } = useAuth();
     const router = useRouter();
+
+    if (isLoading) {
+        return (
+            <div className="container" style={{ maxWidth: '480px', margin: '4rem auto', padding: '0 1rem', textAlign: 'center' }}>
+                <div style={{ marginTop: '2rem', color: '#666' }}>Loading configuration...</div>
+            </div>
+        );
+    }
 
     // UI State
     const [selectedRole, setSelectedRole] = useState<UserRole | null>(null);
