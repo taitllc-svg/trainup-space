@@ -1,0 +1,80 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  MEMBER
+  TRAINER
+  GYM
+  ADMIN
+}
+
+enum BookingStatus {
+  REQUESTED
+  CONFIRMED
+  DECLINED
+  CANCELLED
+}
+
+model User {
+  id            String    @id @default(uuid())
+  email         String    @unique
+  passwordHash  String
+  name          String
+  role          Role      @default(MEMBER)
+  createdAt     DateTime  @default(now())
+  
+  // Relations
+  trainerProfile TrainerProfile?
+  bookings       Booking[]       @relation("MemberBookings")
+  
+  // As a trainer
+  trainerBookings Booking[]      @relation("TrainerBookings")
+}
+
+model TrainerProfile {
+  id          String   @id @default(uuid())
+  userId      String   @unique
+  user        User     @relation(fields: [userId], references: [id])
+  bio         String?
+  specialties String[] // PostgreSQL supports arrays
+  rate        Float?
+  rating      Float    @default(5.0)
+  location    String   @default("Remote")
+}
+
+model Booking {
+  id          String        @id @default(uuid())
+  memberId    String
+  member      User          @relation("MemberBookings", fields: [memberId], references: [id])
+  trainerId   String
+  trainer     User          @relation("TrainerBookings", fields: [trainerId], references: [id])
+  date        DateTime
+  status      BookingStatus @default(REQUESTED)
+  notes       String?
+  location    String?       @default("Gym")
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+}
+
+// For migrating the scheduled classes logic
+model ClassSession {
+  id          String   @id @default(uuid())
+  title       String
+  description String?
+  instructor  String
+  time        DateTime
+  duration    Int      @default(60) // minutes
+  category    String
+  capacity    Int      @default(20)
+  price       Float?
+  createdAt   DateTime @default(now())
+}

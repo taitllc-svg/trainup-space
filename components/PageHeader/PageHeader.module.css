@@ -1,0 +1,23 @@
+.header {
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--foreground);
+    margin: 0 0 0.5rem 0;
+}
+
+.description {
+    color: var(--secondary);
+    margin: 0;
+}
+
+.action {
+    display: flex;
+    gap: 1rem;
+}

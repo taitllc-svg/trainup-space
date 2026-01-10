@@ -1,0 +1,91 @@
+.card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.75rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.category {
+    background-color: #f1f5f9;
+    color: var(--secondary);
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+}
+
+.price {
+    color: var(--primary);
+}
+
+.title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin: 0 0 1rem 0;
+    color: var(--foreground);
+}
+
+.details {
+    margin-bottom: 1.5rem;
+    font-size: 0.9rem;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+    color: var(--secondary);
+}
+
+.value {
+    color: var(--foreground);
+    font-weight: 500;
+}
+
+.full {
+    color: #ef4444;
+    /* Red */
+}
+
+.button {
+    margin-top: auto;
+    width: 100%;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 6px;
+    background-color: var(--primary);
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.button:hover:not(:disabled) {
+    opacity: 0.9;
+}
+
+.booked {
+    background-color: #10b981;
+    /* Green */
+    cursor: default;
+}
+
+.disabled {
+    background-color: #cbd5e1;
+    cursor: not-allowed;
+}
