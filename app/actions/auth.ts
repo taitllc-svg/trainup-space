@@ -68,3 +68,10 @@ export async function getCurrentUser() {
 
     return null
 }
+
+export async function getAppMode() {
+    return {
+        isDemoMode: process.env.NEXT_PUBLIC_DEMO_MODE === 'true',
+        isConfigured: !!(process.env.NEXT_PUBLIC_USER_POOL_ID && process.env.NEXT_PUBLIC_USER_POOL_CLIENT_ID)
+    }
+}

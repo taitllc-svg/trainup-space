@@ -3,7 +3,7 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
 import { getCurrentUser as amplifyGetCurrentUser, signOut as amplifySignOut, signIn, SignInInput } from 'aws-amplify/auth';
 import { useRouter } from 'next/navigation';
-import { login as demoLoginAction, logout as demoLogoutAction, getCurrentUser } from '@/app/actions/auth'; // Re-use existing server actions for demo cookies
+import { login as demoLoginAction, logout as demoLogoutAction, getCurrentUser, getAppMode } from '@/app/actions/auth'; // Re-use existing server actions for demo cookies
 import { configureAmplify } from './amplify-config';
 
 // Initialize Amplify
@@ -33,7 +33,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     const [isLoading, setIsLoading] = useState(true);
     const router = useRouter();
 
-    const isDemoMode = process.env.NEXT_PUBLIC_DEMO_MODE === 'true';
+    const [isDemoMode, setIsDemoMode] = useState(false); // Default to false, check server for truth
 
     useEffect(() => {
         checkUser();
@@ -41,7 +41,12 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
 
     const checkUser = async () => {
         setIsLoading(true);
-        if (isDemoMode) {
+
+        // 1. Check Runtime Mode from Server (bypasses build-time baking issues)
+        const appConfig = await getAppMode();
+        setIsDemoMode(appConfig.isDemoMode);
+
+        if (appConfig.isDemoMode) {
             // Use Server Action to get user from DB based on Cookie
             try {
                 const dbUser = await getCurrentUser();
