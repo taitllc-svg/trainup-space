@@ -4,11 +4,11 @@
     justify-content: space-between;
     height: var(--header-height);
     padding: 0 2rem;
-    background-color: rgba(10, 10, 15, 0.8);
-    /* Semi-transparent dark */
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(0, 240, 255, 0.1);
+    background-color: rgba(17, 19, 23, 0.85);
+    /* Matches new lighter bg */
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     position: sticky;
     top: 0;
     z-index: 100;
@@ -16,13 +16,12 @@
 
 .logo a {
     font-family: var(--font-orbitron);
-    font-weight: 800;
+    font-weight: 700;
     font-size: 1.5rem;
     color: white;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
-    text-shadow: 0 0 10px rgba(0, 240, 255, 0.5);
-    /* Neon Glow */
+    letter-spacing: 0.05em;
+    /* Clean, no heavy glow */
 }
 
 .links {
@@ -33,7 +32,7 @@
 .link {
     font-family: var(--font-rajdhani);
     font-weight: 600;
-    font-size: 1.1rem;
+    font-size: 1.05rem;
     color: #94a3b8;
     text-transform: uppercase;
     letter-spacing: 0.05em;
@@ -44,7 +43,7 @@
 
 .link:hover {
     color: var(--primary);
-    text-shadow: 0 0 8px var(--primary-glow);
+    /* Clean hover, no glow */
 }
 
 .active {
@@ -74,8 +73,9 @@
 
 .loginBtn:hover {
     background: var(--primary);
-    color: black;
-    box-shadow: 0 0 15px var(--primary-glow);
+    color: #0f172a;
+    /* Dark text on hover */
+    box-shadow: none;
 }
 
 /* Notifications */

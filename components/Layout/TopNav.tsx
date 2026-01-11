@@ -81,22 +81,6 @@ const TopNav = () => {
             <div className={styles.actions}>
                 {user ? (
                     <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem' }}>
-                        {/* Upgrade Button (Monetization) */}
-                        <button style={{
-                            background: 'linear-gradient(135deg, #f59e0b 0%, #d97706 100%)',
-                            color: 'white',
-                            border: 'none',
-                            padding: '0.4rem 0.8rem',
-                            borderRadius: '99px',
-                            fontWeight: 700,
-                            fontSize: '0.8rem',
-                            cursor: 'pointer',
-                            boxShadow: '0 2px 4px rgba(245, 158, 11, 0.3)',
-                            display: 'flex', alignItems: 'center', gap: '4px'
-                        }}>
-                            <span>⭐</span> Upgrade
-                        </button>
-
                         {/* Notifications */}
                         <div style={{ position: 'relative' }}>
                             <button
