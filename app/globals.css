@@ -1,3 +1,10 @@
+/* Global Reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 :root {
   /* ========================================================================
      TRAINUP PREMIUM DESIGN TOKENS

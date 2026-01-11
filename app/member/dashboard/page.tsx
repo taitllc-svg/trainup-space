@@ -64,7 +64,7 @@ export default function MemberDashboard() {
 
                     <div style={{
                         display: 'grid',
-                        gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 2fr)) 1fr',
+                        gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 2fr)) 1fr',
                         gap: '2rem',
                         alignItems: 'start'
                     }}>
