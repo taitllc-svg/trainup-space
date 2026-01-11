@@ -137,6 +137,31 @@
 
 /* ---------- App UI Defaults ---------- */
 
+/* Vertical Flow Utilities */
+.stack-sm {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.stack-md {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.stack-lg {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.stack-xl {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
 /* Panels / cards */
 .card,
 .panel,
@@ -210,10 +235,20 @@ button[type="submit"]:hover {
   filter: brightness(1.03);
 }
 
-.btn-primary:disabled,
+.btn-primary:distabled,
 button:disabled {
   opacity: .55;
   cursor: not-allowed;
+}
+
+/* Touch Accessibility (Min 44px) */
+button,
+input,
+select,
+.touch-target {
+  min-height: 48px;
+  /* Comfortable 48px standard */
+  min-width: 48px;
 }
 
 /* Secondary button */
