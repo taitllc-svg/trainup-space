@@ -27,11 +27,13 @@ export default function RootLayout({
       </head>
       <body>
         <AuthProvider>
-          <TopNav />
-          <main className="main-content app-shell">
-            {children}
-          </main>
-          <DemoBadge />
+          <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100dvh' }}>
+            <TopNav />
+            <main className="main-content app-shell" style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
+              {children}
+            </main>
+            <DemoBadge />
+          </div>
         </AuthProvider>
       </body>
     </html>

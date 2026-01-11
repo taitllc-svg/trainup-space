@@ -34,8 +34,8 @@ export default function MemberDashboard() {
 
     return (
         <RouteGuard>
-            <div style={{ background: '#f9fafb', minHeight: '100dvh' }}>
-                <div className="container page-content">
+            <div style={{ background: '#f9fafb', flex: 1, display: 'flex', flexDirection: 'column' }}>
+                <div className="container page-content" style={{ flex: 1 }}>
                     {/* ... content ... */}
                     <div style={{ marginBottom: '2rem' }}>
                         <h1 style={{ fontSize: '2rem', fontWeight: 800, color: '#111827', letterSpacing: '-0.5px', marginBottom: '0.5rem' }}>

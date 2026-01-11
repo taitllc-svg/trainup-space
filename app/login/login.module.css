@@ -10,7 +10,9 @@
     /* Remove default padding to control full width */
     background: linear-gradient(180deg, #1e2025 0%, #111317 100%);
     position: relative;
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: auto;
+    /* Enable vertical scrolling */
 }
 
 /* Background Ambient Glow */

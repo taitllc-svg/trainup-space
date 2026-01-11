@@ -31,8 +31,8 @@ export default function GymDashboard() {
 
     return (
         <RouteGuard>
-            <div style={{ background: '#f9fafb', minHeight: '100vh', paddingBottom: '4rem' }}>
-                <div className="container" style={{ padding: '2rem', maxWidth: '1200px' }}>
+            <div style={{ background: '#f9fafb', flex: 1, display: 'flex', flexDirection: 'column' }}>
+                <div className="container page-content" style={{ flex: 1 }}>
 
                     {/* Header */}
                     <div style={{ marginBottom: '2.5rem' }}>
