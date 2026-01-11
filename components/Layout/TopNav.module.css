@@ -172,9 +172,9 @@
         top: var(--header-height);
         left: 0;
         right: 0;
-        background: rgba(10, 10, 15, 0.95);
-        /* Dark background */
-        backdrop-filter: blur(10px);
+        background: rgba(17, 19, 23, 0.95);
+        /* Lighter Gunmetal */
+        backdrop-filter: blur(16px);
         flex-direction: column;
         gap: 0;
         border-bottom: 1px solid var(--border);
