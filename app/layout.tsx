@@ -1,11 +1,11 @@
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
 import './globals.css';
 import TopNav from '@/components/Layout/TopNav';
 import DemoBadge from '@/components/Layout/DemoBadge';
 import { AuthProvider } from '@/lib/auth-context';
 
-const inter = Inter({ subsets: ['latin'] });
+/* eslint-disable @next/next/no-page-custom-font */
+
 
 export const metadata: Metadata = {
   title: 'Trainup.space',
@@ -20,7 +20,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Orbitron:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+      </head>
+      <body>
         <AuthProvider>
           <TopNav />
           <main className="main-content">

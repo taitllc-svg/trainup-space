@@ -4,34 +4,47 @@
     justify-content: space-between;
     height: var(--header-height);
     padding: 0 2rem;
-    background-color: var(--card-bg);
-    border-bottom: 1px solid var(--border);
+    background-color: rgba(10, 10, 15, 0.8);
+    /* Semi-transparent dark */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(0, 240, 255, 0.1);
     position: sticky;
     top: 0;
     z-index: 100;
 }
 
 .logo a {
-    font-weight: 700;
-    font-size: 1.25rem;
-    color: var(--primary);
+    font-family: var(--font-orbitron);
+    font-weight: 800;
+    font-size: 1.5rem;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    text-shadow: 0 0 10px rgba(0, 240, 255, 0.5);
+    /* Neon Glow */
 }
 
 .links {
     display: flex;
-    gap: 1.5rem;
+    gap: 2rem;
 }
 
 .link {
-    font-size: 0.95rem;
-    color: var(--foreground);
+    font-family: var(--font-rajdhani);
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: #94a3b8;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
     padding: 0.5rem 0;
     border-bottom: 2px solid transparent;
-    transition: all 0.2s ease;
+    transition: all 0.3s ease;
 }
 
 .link:hover {
     color: var(--primary);
+    text-shadow: 0 0 8px var(--primary-glow);
 }
 
 .active {
@@ -45,18 +58,24 @@
 }
 
 .loginBtn {
-    padding: 0.5rem 1rem;
-    background-color: transparent;
+    padding: 0.5rem 1.5rem;
+    background: transparent;
     border: 1px solid var(--primary);
     color: var(--primary);
-    border-radius: 4px;
-    font-weight: 500;
-    transition: background-color 0.2s;
+    font-family: var(--font-orbitron);
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    border-radius: 0;
+    /* Sharp edges */
+    transition: all 0.3s;
+    letter-spacing: 1px;
 }
 
 .loginBtn:hover {
-    background-color: var(--secondary);
-    color: var(--background);
+    background: var(--primary);
+    color: black;
+    box-shadow: 0 0 15px var(--primary-glow);
 }
 
 /* Notifications */
@@ -144,6 +163,8 @@
 
     .menuBtn {
         display: block;
+        color: white;
+        /* Visible against dark bg */
     }
 
     .links {
@@ -151,11 +172,13 @@
         top: var(--header-height);
         left: 0;
         right: 0;
-        background: var(--card-bg);
+        background: rgba(10, 10, 15, 0.95);
+        /* Dark background */
+        backdrop-filter: blur(10px);
         flex-direction: column;
         gap: 0;
         border-bottom: 1px solid var(--border);
-        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
         display: none;
         /* Hidden by default on mobile */
         z-index: 99;
@@ -167,9 +190,11 @@
     }
 
     .link {
-        padding: 1rem 1.5rem;
-        border-bottom: 1px solid #f3f4f6;
+        padding: 1.5rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        /* Subtle dark mode border */
         width: 100%;
+        color: white;
         display: block;
     }
 
