@@ -10,7 +10,7 @@
   --button-secondary-border: #ebebeb;
 
   display: flex;
-  min-height: 100vh;
+  min-height: 100dvh;
   align-items: flex-start;
   /* ⬅ change */
   justify-content: flex-start;

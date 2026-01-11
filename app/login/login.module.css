@@ -1,6 +1,5 @@
 /* Mobile-First App Container */
 .container {
-    min-height: 100vh;
     min-height: 100dvh;
     /* Proper mobile viewport height */
     width: 100%;

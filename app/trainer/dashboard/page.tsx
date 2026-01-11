@@ -65,7 +65,7 @@ export default function TrainerDashboard() {
 
     return (
         <RouteGuard>
-            <div style={{ background: '#f9fafb', minHeight: '100vh', paddingBottom: '4rem' }}>
+            <div style={{ background: '#f9fafb', minHeight: '100dvh', paddingBottom: '4rem' }}>
                 <div className="container" style={{ padding: '2rem', maxWidth: '1200px' }}>
                     {/* ... content ... */}
                     {/* Header */}
