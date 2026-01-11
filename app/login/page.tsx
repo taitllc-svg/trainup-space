@@ -55,7 +55,10 @@ export default function LoginPage() {
                 // The user just wants to see the app, not invent fake emails.
 
                 await demoLogin(selectedRole);
-                // Redirect will happen in context/action
+
+                // UX Enhancement: Redirect to Onboarding for the Demo experience
+                // so the user can see the role-based flow we just built.
+                router.push('/onboarding');
             } else {
                 // Real Mode: Cognito
                 await cognitoLogin({ username: email, password });
