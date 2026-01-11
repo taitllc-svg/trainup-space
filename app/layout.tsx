@@ -28,7 +28,7 @@ export default function RootLayout({
       <body>
         <AuthProvider>
           <TopNav />
-          <main className="main-content">
+          <main className="main-content app-shell">
             {children}
           </main>
           <DemoBadge />

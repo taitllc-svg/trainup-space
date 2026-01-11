@@ -276,10 +276,10 @@
 /* Native-feel Button */
 .submitBtn {
     width: 100%;
-    padding: 2rem 1.5rem;
-    background: linear-gradient(180deg, #1c1c1e 0%, #161618 100%);
-    /* Subtle gradient */
-    color: #0f172a;
+    padding: 1.25rem;
+    /* High Contrast Teal Gradient */
+    background: linear-gradient(135deg, var(--primary) 0%, #2dd4bf 100%);
+    color: #022c22;
     border: none;
     border-radius: 99px;
     /* Pill */
