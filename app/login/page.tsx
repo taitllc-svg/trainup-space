@@ -48,13 +48,11 @@ export default function LoginPage() {
 
         try {
             if (isDemoMode) {
-                // In Demo Mode: We pretend to check creds, then just log them in as the selected role
-                if (!selectedRole) return; // Should not happen
+                // In Demo Mode: Seamless access.
+                if (!selectedRole) return;
 
-                // Optional: Validate they typed *something*
-                if (!email || !password) {
-                    throw new Error('Please enter email and password.');
-                }
+                // Intentional: We allow empty credentials for a smoother "Product Preview" feel.
+                // The user just wants to see the app, not invent fake emails.
 
                 await demoLogin(selectedRole);
                 // Redirect will happen in context/action
@@ -136,27 +134,31 @@ export default function LoginPage() {
 
                         <form onSubmit={handleLoginSubmit} style={{ display: 'flex', flexDirection: 'column', flex: 1 }}>
                             <div className={styles.inputGroup}>
-                                <label className={styles.label}>Email Access Key</label>
+                                <label className={styles.label}>
+                                    {isDemoMode ? 'Demo Access ID' : 'Email Address'}
+                                </label>
                                 <input
-                                    type="email"
-                                    required
+                                    type="text"
                                     className={styles.input}
                                     value={email}
                                     onChange={e => setEmail(e.target.value)}
-                                    placeholder="name@example.com"
+                                    placeholder={isDemoMode ? "visitor@trainup.demo" : "name@example.com"}
                                     autoFocus
+                                    required={!isDemoMode}
                                 />
                             </div>
 
                             <div className={styles.inputGroup}>
-                                <label className={styles.label}>Passcode</label>
+                                <label className={styles.label}>
+                                    {isDemoMode ? 'Session Key (Optional)' : 'Password'}
+                                </label>
                                 <input
                                     type="password"
-                                    required
                                     className={styles.input}
                                     value={password}
                                     onChange={e => setPassword(e.target.value)}
-                                    placeholder="••••••••"
+                                    placeholder={isDemoMode ? "••••••••" : "••••••••"}
+                                    required={!isDemoMode}
                                 />
                             </div>
 
@@ -169,12 +171,13 @@ export default function LoginPage() {
                             {/* Pushed to Bottom */}
                             <div className={styles.bottomActions}>
                                 <button type="submit" className={styles.submitBtn} disabled={loading}>
-                                    {loading ? 'AUTHENTICATING...' : 'ENTER PORTAL'}
+                                    {loading ? 'STARTING SESSION...' : (isDemoMode ? 'ENTER PREVIEW' : 'SIGN IN')}
                                 </button>
 
                                 {isDemoMode && (
-                                    <div style={{ textAlign: 'center', fontSize: '0.8rem', color: '#64748b' }}>
-                                        Demo: Use any credentials
+                                    <div style={{ textAlign: 'center', fontSize: '0.85rem', color: '#94a3b8', marginTop: '0.5rem', lineHeight: '1.4' }}>
+                                        <span style={{ display: 'block', marginBottom: '0.25rem' }}>✨ <strong>Pro Tip:</strong> No real credentials needed.</span>
+                                        Just tap <strong>Enter Preview</strong> to explore the full platform.
                                     </div>
                                 )}
                             </div>
