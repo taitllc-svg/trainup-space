@@ -1,22 +1,22 @@
 :root {
-  /* Modern Fitness Dark Theme */
-  --background: #1e2025;
-  /* Dark Grey (Gunmetal) - distinctly lighter than black */
-  --foreground: #f1f5f9;
-  /* Slate-100 */
-  --card-bg: #282a30;
-  /* Elevated Card */
-  --border: #374151;
+  /* Premium Dark Grey Theme */
+  --background: #1c1c1e;
+  /* Deep Charcoal (Not Black) */
+  --foreground: #f2f2f2;
+  /* Off-White */
+  --card-bg: #2c2c2e;
+  /* Elevated Surface */
+  --border: #3a3a3c;
+  /* Subtle darker border */
 
-  /* Sporty Accents */
-  --primary: #22d3ee;
-  /* Cyan-400 (Vibrant but cleaner) */
-  --primary-glow: rgba(34, 211, 238, 0.15);
-  /* Subtle glow */
-  --secondary: #818cf8;
-  /* Indigo-400 */
-  --accent: #f43f5e;
-  /* Rose-500 */
+  /* Calm Accents */
+  --primary: #5eead4;
+  /* Muted Teal (Teal-300) */
+  --primary-glow: rgba(94, 234, 212, 0.15);
+  --secondary: #9ca3af;
+  /* Cool Grey */
+  --accent: #f87171;
+  /* Muted Red */
 
   --header-height: 70px;
 

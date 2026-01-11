@@ -21,8 +21,8 @@
     left: 50%;
     transform: translateX(-50%);
     width: 140%;
-    height: 50%;
-    background: radial-gradient(circle, rgba(34, 211, 238, 0.08) 0%, transparent 70%);
+    height: 60%;
+    background: radial-gradient(circle, rgba(94, 234, 212, 0.05) 0%, transparent 70%);
     pointer-events: none;
     z-index: 0;
 }
@@ -242,8 +242,8 @@
 /* Native-feel Button */
 .submitBtn {
     width: 100%;
-    padding: 1.25rem;
-    background: linear-gradient(135deg, var(--primary) 0%, #06b6d4 100%);
+    padding: 2rem 1.5rem;
+    background: linear-gradient(180deg, #1c1c1e 0%, #161618 100%);
     /* Subtle gradient */
     color: #0f172a;
     border: none;
