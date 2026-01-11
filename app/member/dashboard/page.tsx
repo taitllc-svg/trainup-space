@@ -10,7 +10,7 @@ import HeroStats from '@/components/Dashboard/HeroStats';
 import MoodRing from '@/components/Dashboard/MoodRing';
 
 import ReferralCard from '@/components/Growth/ReferralCard';
-import AdWidget from '@/components/Monetization/AdWidget';
+
 import Skeleton from '@/components/UI/Skeleton';
 
 // ... imports
@@ -105,13 +105,7 @@ export default function MemberDashboard() {
                         <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
 
                             <MoodRing />
-                            <AdWidget
-                                title="Summer Shred Event"
-                                description="Get 50% off GymShark gear this week only. Use code TRAINUP."
-                                image="https://placehold.co/600x400/111827/FFF?text=GS+Sale"
-                                cta="Shop Now"
-                                sponsor="GymShark"
-                            />
+
                             <div style={{ background: 'white', borderRadius: '16px', padding: '1.5rem', border: '1px solid #f3f4f6' }}>
                                 <h4 style={{ margin: '0 0 1rem 0', fontSize: '1rem', fontWeight: 700 }}>Member Perks 💎</h4>
                                 <ul style={{ padding: 0, margin: 0, listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
