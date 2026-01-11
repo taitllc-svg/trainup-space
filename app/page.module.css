@@ -31,7 +31,7 @@
 
   min-height: auto;
   /* ⬅ remove 100vh */
-  overflow-y: auto;
+
   /* ⬅ critical */
   align-items: flex-start;
   justify-content: space-between;
