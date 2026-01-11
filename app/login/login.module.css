@@ -1,0 +1,237 @@
+/* Mobile-First App Container */
+.container {
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem 1.5rem;
+    background: linear-gradient(180deg, var(--background) 0%, #1a1c22 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Background Ambient Glow */
+.container::before {
+    content: '';
+    position: absolute;
+    top: -20%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 150%;
+    height: 60%;
+    background: radial-gradient(circle, rgba(34, 211, 238, 0.08) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.content {
+    position: relative;
+    z-index: 1;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 480px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+/* Typography */
+.title {
+    font-family: var(--font-orbitron);
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    background: linear-gradient(to right, white, #94a3b8);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align: center;
+}
+
+.subtitle {
+    font-family: var(--font-rajdhani);
+    font-size: 1.1rem;
+    color: #64748b;
+    text-align: center;
+    margin-bottom: 3rem;
+    font-weight: 500;
+}
+
+/* Role Selection Grid */
+.roleGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    width: 100%;
+}
+
+.roleCard {
+    background: rgba(40, 42, 48, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 1.5rem;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.roleCard:active {
+    transform: scale(0.98);
+    background: rgba(40, 42, 48, 0.6);
+}
+
+.roleCard.active {
+    border-color: var(--primary);
+    background: rgba(34, 211, 238, 0.05);
+}
+
+.roleIcon {
+    font-size: 1.5rem;
+    margin-right: 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    color: var(--foreground);
+}
+
+.roleInfo {
+    flex: 1;
+}
+
+.roleName {
+    display: block;
+    font-family: var(--font-orbitron);
+    font-weight: 600;
+    font-size: 1rem;
+    color: white;
+    margin-bottom: 0.25rem;
+}
+
+.roleDesc {
+    font-size: 0.85rem;
+    color: #64748b;
+}
+
+/* Arrow */
+.chevron {
+    color: #475569;
+    transition: transform 0.2s;
+}
+
+.roleCard:hover .chevron {
+    color: var(--primary);
+    transform: translateX(4px);
+}
+
+/* Login Form (Slide Up Animation) */
+.formContainer {
+    animation: slideUp 0.4s ease-out;
+    width: 100%;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.backBtn {
+    background: none;
+    border: none;
+    color: #64748b;
+    font-family: var(--font-rajdhani);
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+    cursor: pointer;
+    padding: 0;
+    font-size: 1rem;
+}
+
+.inputGroup {
+    margin-bottom: 1.5rem;
+}
+
+.label {
+    display: block;
+    font-family: var(--font-rajdhani);
+    font-weight: 600;
+    color: #94a3b8;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.input {
+    width: 100%;
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid #334155;
+    padding: 1rem;
+    border-radius: 12px;
+    color: white;
+    font-size: 1rem;
+    font-family: var(--font-inter);
+    transition: border-color 0.2s;
+    outline: none;
+}
+
+.input:focus {
+    border-color: var(--primary);
+    background: rgba(0, 0, 0, 0.4);
+}
+
+.submitBtn {
+    width: 100%;
+    padding: 1rem;
+    margin-top: 1rem;
+    background: var(--primary);
+    color: #0f172a;
+    border: none;
+    border-radius: 12px;
+    font-family: var(--font-orbitron);
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(34, 211, 238, 0.2);
+    transition: all 0.2s;
+}
+
+.submitBtn:active {
+    transform: scale(0.98);
+}
+
+.submitBtn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+.demoBanner {
+    background: rgba(245, 158, 11, 0.1);
+    border: 1px solid rgba(245, 158, 11, 0.2);
+    color: #fbbf24;
+    padding: 0.75rem;
+    border-radius: 8px;
+    text-align: center;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+    font-family: var(--font-mono);
+}

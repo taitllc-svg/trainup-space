@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { useAuth, UserRole } from '@/lib/auth-context';
-import PageHeader from '@/components/PageHeader/PageHeader';
+import styles from './login.module.css';
 
 export default function LoginPage() {
     const { demoLogin, cognitoLogin, isDemoMode, isLoading } = useAuth();
@@ -77,123 +77,107 @@ export default function LoginPage() {
 
     const showForm = !isDemoMode || selectedRole;
 
+    // ... logic remains same ...
+
+    // UI Transformation
     return (
-        <div className="container" style={{ maxWidth: '480px', margin: '4rem auto', padding: '0 1rem' }}>
-            <PageHeader title="Trainup.space" description="Access Portal" />
+        <div className={styles.container}>
+            <div className={styles.content}>
 
-            {isDemoMode && !selectedRole && (
-                <>
-                    <div style={{ marginBottom: '2rem', padding: '1rem', background: '#f4f4f5', color: '#18181b', border: '1px solid #e4e4e7', borderRadius: '6px', fontSize: '0.9rem', textAlign: 'center' }}>
-                        <span style={{ fontWeight: 700, display: 'block', marginBottom: '0.25rem', color: '#ea580c' }}>DEMO MODE ACTIVE</span>
-                        Select a portal to access.
-                    </div>
+                {/* Header Section */}
+                {!showForm && (
+                    <>
+                        <h1 className={styles.title}>TRAINUP</h1>
+                        <p className={styles.subtitle}>Select your access portal</p>
 
-                    <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '1rem' }}>
-                        {roles.map((item) => (
-                            <button
-                                key={item.role}
-                                onClick={() => handleRoleSelect(item.role)}
-                                style={{
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    justifyContent: 'space-between',
-                                    padding: '1.25rem',
-                                    background: 'var(--card-bg)',
-                                    border: '1px solid var(--border)',
-                                    borderRadius: '8px',
-                                    cursor: 'pointer',
-                                    transition: 'all 0.2s ease',
-                                    textAlign: 'left'
-                                }}
-                            >
-                                <div>
-                                    <span style={{ display: 'block', fontWeight: 700, color: item.role === 'MEMBER' ? 'var(--primary)' : 'var(--foreground)' }}>
-                                        {item.label}
-                                    </span>
-                                    <span style={{ fontSize: '0.85rem', color: 'var(--secondary)' }}>{item.desc}</span>
+                        {isDemoMode && (
+                            <div className={styles.demoBanner}>
+                                DEMO MODE ACTIVE
+                            </div>
+                        )}
+
+                        <div className={styles.roleGrid}>
+                            {roles.map((item) => (
+                                <div
+                                    key={item.role}
+                                    className={styles.roleCard}
+                                    onClick={() => handleRoleSelect(item.role)}
+                                >
+                                    <div className={styles.roleIcon}>
+                                        {item.role === 'MEMBER' && '🏃'}
+                                        {item.role === 'TRAINER' && '⚡'}
+                                        {item.role === 'GYM' && '🏢'}
+                                        {item.role === 'ADMIN' && '🛡️'}
+                                    </div>
+                                    <div className={styles.roleInfo}>
+                                        <span className={styles.roleName}>{item.label}</span>
+                                        <span className={styles.roleDesc}>{item.desc}</span>
+                                    </div>
+                                    <div className={styles.chevron}>→</div>
                                 </div>
-                                <div style={{ fontSize: '1.25rem', color: 'var(--secondary)' }}>&rarr;</div>
+                            ))}
+                        </div>
+                    </>
+                )}
+
+                {/* Login Form Section (Animated) */}
+                {showForm && (
+                    <div className={styles.formContainer}>
+                        {isDemoMode && (
+                            <button className={styles.backBtn} onClick={() => setSelectedRole(null)}>
+                                ← Change Portal
                             </button>
-                        ))}
+                        )}
+
+                        <h2 className={styles.title} style={{ fontSize: '1.75rem', textAlign: 'left', marginBottom: '1.5rem' }}>
+                            {isDemoMode ? `Hello, ${roles.find(r => r.role === selectedRole)?.label}` : 'Welcome Back'}
+                        </h2>
+
+                        <form onSubmit={handleLoginSubmit}>
+                            <div className={styles.inputGroup}>
+                                <label className={styles.label}>Email Access Key</label>
+                                <input
+                                    type="email"
+                                    required
+                                    className={styles.input}
+                                    value={email}
+                                    onChange={e => setEmail(e.target.value)}
+                                    placeholder="name@example.com"
+                                    autoFocus
+                                />
+                            </div>
+
+                            <div className={styles.inputGroup}>
+                                <label className={styles.label}>Passcode</label>
+                                <input
+                                    type="password"
+                                    required
+                                    className={styles.input}
+                                    value={password}
+                                    onChange={e => setPassword(e.target.value)}
+                                    placeholder="••••••••"
+                                />
+                            </div>
+
+                            {error && (
+                                <div style={{ color: '#ef4444', fontSize: '0.9rem', marginBottom: '1rem', padding: '0.75rem', background: 'rgba(239, 68, 68, 0.1)', borderRadius: '8px' }}>
+                                    {error}
+                                </div>
+                            )}
+
+                            <button type="submit" className={styles.submitBtn} disabled={loading}>
+                                {loading ? 'AUTHENTICATING...' : 'ENTER PORTAL'}
+                            </button>
+
+                            {isDemoMode && (
+                                <p style={{ marginTop: '1.5rem', textAlign: 'center', fontSize: '0.85rem', color: '#64748b' }}>
+                                    Demo Environment: Any credentials accepted.
+                                </p>
+                            )}
+                        </form>
                     </div>
-                </>
-            )}
-
-            {showForm && (
-                <div style={{
-                    background: 'var(--card-bg)',
-                    padding: '2rem',
-                    borderRadius: '12px',
-                    border: '1px solid var(--border)',
-                    boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)',
-                    position: 'relative'
-                }}>
-                    {isDemoMode && (
-                        <button
-                            onClick={() => setSelectedRole(null)}
-                            style={{ position: 'absolute', top: '1rem', left: '1rem', background: 'none', border: 'none', color: '#666', cursor: 'pointer', fontSize: '0.9rem' }}>
-                            &larr; Back
-                        </button>
-                    )}
-
-                    <h2 style={{ marginBottom: '1.5rem', fontSize: '1.25rem', textAlign: 'center', marginTop: isDemoMode ? '0.5rem' : '0' }}>
-                        {isDemoMode ? `Login as ${roles.find(r => r.role === selectedRole)?.label}` : 'Sign In'}
-                    </h2>
-
-                    <form onSubmit={handleLoginSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-                        <div>
-                            <label style={{ display: 'block', marginBottom: '0.5rem', fontSize: '0.9rem', fontWeight: 500 }}>Email Address</label>
-                            <input
-                                type="email"
-                                required
-                                value={email}
-                                onChange={e => setEmail(e.target.value)}
-                                style={{ width: '100%', padding: '0.75rem', borderRadius: '6px', border: '1px solid #ddd', fontSize: '1rem' }}
-                                placeholder="you@example.com"
-                            />
-                        </div>
-
-                        <div>
-                            <label style={{ display: 'block', marginBottom: '0.5rem', fontSize: '0.9rem', fontWeight: 500 }}>Password</label>
-                            <input
-                                type="password"
-                                required
-                                value={password}
-                                onChange={e => setPassword(e.target.value)}
-                                style={{ width: '100%', padding: '0.75rem', borderRadius: '6px', border: '1px solid #ddd', fontSize: '1rem' }}
-                                placeholder="••••••••"
-                            />
-                        </div>
-
-                        {error && <div style={{ color: '#dc2626', fontSize: '0.9rem', padding: '0.5rem', background: '#fee2e2', borderRadius: '4px' }}>{error}</div>}
-
-                        <button
-                            type="submit"
-                            disabled={loading}
-                            style={{
-                                marginTop: '1rem',
-                                background: 'var(--primary)',
-                                color: 'white',
-                                padding: '0.75rem',
-                                borderRadius: '6px',
-                                border: 'none',
-                                fontWeight: 600,
-                                fontSize: '1rem',
-                                cursor: loading ? 'wait' : 'pointer',
-                                opacity: loading ? 0.7 : 1
-                            }}
-                        >
-                            {loading ? 'Please wait...' : 'Sign In'}
-                        </button>
-                    </form>
-
-                    {isDemoMode && (
-                        <div style={{ marginTop: '1.5rem', textAlign: 'center', fontSize: '0.85rem', color: '#888', fontStyle: 'italic' }}>
-                            (Demo Mode: Enter any email/password)
-                        </div>
-                    )}
-                </div>
-            )}
+                )}
+            </div>
         </div>
     );
 }
