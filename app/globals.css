@@ -89,21 +89,53 @@
   --status-error: var(--color-error);
   --status-info: var(--color-info);
 
-  /* --- 03. COMPONENT VARIABLES --- */
-  --header-height: 70px;
-  --radius-sm: 8px;
-  --radius-md: 14px;
-  --radius-lg: 18px;
-  --radius-pill: 999px;
-
-  /* Typography */
-  --font-orbitron: 'Orbitron', sans-serif;
-  --font-rajdhani: 'Rajdhani', sans-serif;
-  --font-inter: 'Inter', sans-serif;
+  /* --- 03. TYPOGRAPHY SYSTEM --- */
+  /* Fonts */
+  --font-brand: 'Orbitron', system-ui, sans-serif;
+  /* Headings, Brand Moments */
+  --font-body: 'Inter', system-ui, sans-serif;
+  /* Main UI, Density */
   --font-mono: 'JetBrains Mono', monospace;
+  /* Stats, IDs, Code */
+
+  /* Scale (Mobile First) */
+  --text-xs: 0.75rem;
+  /* 12px */
+  --text-sm: 0.875rem;
+  /* 14px */
+  --text-base: 1rem;
+  /* 16px */
+  --text-lg: 1.125rem;
+  /* 18px */
+  --text-xl: 1.25rem;
+  /* 20px */
+  --text-2xl: 1.5rem;
+  /* 24px */
+  --text-3xl: 2rem;
+  /* 32px */
+  --text-4xl: 3rem;
+  /* 48px */
+
+  /* Weights */
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+
+  /* Leading (Line Height) */
+  --leading-tight: 1.1;
+  --leading-snug: 1.3;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.7;
+
+  /* Tracking (Letter Spacing) */
+  --tracking-tight: -0.02em;
+  --tracking-normal: 0em;
+  --tracking-wide: 0.05em;
+  /* For Uppercase/Headings */
 }
 
-/* ---------- App UI Defaults (add below your current CSS) ---------- */
+/* ---------- App UI Defaults ---------- */
 
 /* Panels / cards */
 .card,
@@ -211,10 +243,15 @@ main,
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-rajdhani);
+  font-family: var(--font-body);
+  /* Switched to Inter for readability */
+  font-size: var(--text-base);
+  line-height: var(--leading-normal);
   margin: 0;
   padding: 0;
   min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 h1,
@@ -223,10 +260,61 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: var(--font-orbitron);
+  font-family: var(--font-brand);
   color: white;
-  letter-spacing: 0.05em;
+  margin-top: 0;
+  margin-bottom: 0.5em;
+  /* Consistent bottom spacing */
+  line-height: var(--leading-tight);
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--tracking-wide);
   text-transform: uppercase;
+}
+
+h1 {
+  font-size: var(--text-4xl);
+}
+
+h2 {
+  font-size: var(--text-3xl);
+}
+
+h3 {
+  font-size: var(--text-2xl);
+}
+
+h4 {
+  font-size: var(--text-xl);
+}
+
+h5 {
+  font-size: var(--text-lg);
+}
+
+h6 {
+  font-size: var(--text-base);
+}
+
+/* Utility Classes for Typography */
+.text-mono {
+  font-family: var(--font-mono);
+}
+
+.text-xs {
+  font-size: var(--text-xs);
+}
+
+.text-sm {
+  font-size: var(--text-sm);
+}
+
+.text-muted {
+  color: var(--text-muted);
+}
+
+.uppercase {
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wide);
 }
 
 a {
