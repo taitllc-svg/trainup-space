@@ -1,21 +1,22 @@
 :root {
-  /* Dark Sci-Fi Theme */
-  --background: #0a0a0f;
-  /* Deep Dark Blue/Black */
-  --foreground: #e2e8f0;
-  /* Off-white text */
-  --card-bg: #13151c;
-  /* Slightly lighter dark */
-  --border: #1e293b;
+  /* Modern Fitness Dark Theme */
+  --background: #1e2025;
+  /* Dark Grey (Gunmetal) - distinctly lighter than black */
+  --foreground: #f1f5f9;
+  /* Slate-100 */
+  --card-bg: #282a30;
+  /* Elevated Card */
+  --border: #374151;
 
-  /* Neon Accents */
-  --primary: #00f0ff;
-  /* Cyberpunk Cyan */
-  --primary-glow: rgba(0, 240, 255, 0.4);
-  --secondary: #7000ff;
-  /* Electric Purple */
-  --accent: #ff0055;
-  /* Hot Pink (for alerts/high intent) */
+  /* Sporty Accents */
+  --primary: #22d3ee;
+  /* Cyan-400 (Vibrant but cleaner) */
+  --primary-glow: rgba(34, 211, 238, 0.15);
+  /* Subtle glow */
+  --secondary: #818cf8;
+  /* Indigo-400 */
+  --accent: #f43f5e;
+  /* Rose-500 */
 
   --header-height: 70px;
 
@@ -30,12 +31,8 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-rajdhani);
-  /* Default to tech look */
   margin: 0;
   padding: 0;
-  background-image:
-    radial-gradient(circle at 50% 0%, rgba(0, 240, 255, 0.1) 0%, transparent 50%),
-    radial-gradient(circle at 100% 0%, rgba(112, 0, 255, 0.05) 0%, transparent 40%);
   min-height: 100vh;
 }
 
