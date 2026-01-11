@@ -27,6 +27,31 @@
     z-index: 0;
 }
 
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px) scale(0.98);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    to {
+        opacity: 0;
+        transform: scale(0.98);
+    }
+}
+
 .content {
     position: relative;
     z-index: 1;
@@ -37,7 +62,8 @@
     max-width: 480px;
     margin: 0 auto;
     padding: 2rem 1.5rem;
-    /* Content padding */
+    /* Page Load Transition */
+    animation: fadeInUp 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
 }
 
 /* Brand Moment - Large & Friendly */
@@ -89,16 +115,36 @@
     align-items: center;
     justify-content: space-between;
     cursor: pointer;
-    transition: all 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+    transition: transform 0.2s cubic-bezier(0.2, 0.8, 0.2, 1), background 0.2s;
     position: relative;
     overflow: hidden;
     min-height: 80px;
     /* Large tap target */
     -webkit-tap-highlight-color: transparent;
+    /* Entrance Animation */
+    opacity: 0;
+    animation: fadeInUp 0.4s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+/* Stagger Delays */
+.roleCard:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.roleCard:nth-child(2) {
+    animation-delay: 0.15s;
+}
+
+.roleCard:nth-child(3) {
+    animation-delay: 0.2s;
+}
+
+.roleCard:nth-child(4) {
+    animation-delay: 0.25s;
 }
 
 .roleCard:active {
-    transform: scale(0.97);
+    transform: scale(0.96);
     background: rgba(40, 42, 48, 0.7);
 }
 
@@ -146,23 +192,11 @@
 
 /* Form Container - Full Height with Bottom Action */
 .formContainer {
-    animation: slideUp 0.3s ease-out;
+    animation: fadeInUp 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
     width: 100%;
     display: flex;
     flex-direction: column;
     flex: 1;
-}
-
-@keyframes slideUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
 }
 
 .backBtn {
@@ -264,8 +298,8 @@
 
 /* Button Press Animation */
 .submitBtn:active:not(:disabled) {
-    transform: scale(0.96);
-    box-shadow: 0 2px 8px rgba(6, 182, 212, 0.2);
+    transform: scale(0.97) translateY(2px);
+    box-shadow: 0 1px 4px rgba(6, 182, 212, 0.2);
 }
 
 .submitBtn:disabled {
