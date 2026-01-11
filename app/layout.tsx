@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import './globals.css';
 import TopNav from '@/components/Layout/TopNav';
+import Footer from '@/components/Layout/Footer';
 import DemoBadge from '@/components/Layout/DemoBadge';
 import { AuthProvider } from '@/lib/auth-context';
 
@@ -32,6 +33,7 @@ export default function RootLayout({
             <main className="main-content app-shell" style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
               {children}
             </main>
+            <Footer />
             <DemoBadge />
           </div>
         </AuthProvider>
