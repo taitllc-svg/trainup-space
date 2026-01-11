@@ -34,10 +34,10 @@ export default function MemberDashboard() {
 
     return (
         <RouteGuard>
-            <div style={{ background: '#f9fafb', minHeight: '100vh', paddingBottom: '4rem' }}>
-                <div className="container" style={{ padding: '2rem', maxWidth: '1200px' }}>
+            <div style={{ background: '#f9fafb', minHeight: '100dvh' }}>
+                <div className="container page-content">
                     {/* ... content ... */}
-                    <div style={{ marginBottom: '2.5rem' }}>
+                    <div style={{ marginBottom: '2rem' }}>
                         <h1 style={{ fontSize: '2rem', fontWeight: 800, color: '#111827', letterSpacing: '-0.5px', marginBottom: '0.5rem' }}>
                             Good Morning, {firstName} ☀️
                         </h1>
