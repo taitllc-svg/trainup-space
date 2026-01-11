@@ -1,9 +1,14 @@
 .container {
-    min-height: 100vh;
+    min-height: 100dvh;
+    /* Native viewport height */
     display: flex;
+    flex-direction: column;
+    /* Stack vertically */
     align-items: center;
     justify-content: center;
     padding: 1rem;
+    padding-top: calc(1rem + env(safe-area-inset-top));
+    padding-bottom: calc(1rem + env(safe-area-inset-bottom));
     background: radial-gradient(circle at top, var(--neutral-800) 0%, var(--neutral-900) 100%);
 }
 
@@ -146,6 +151,30 @@
     0%,
     100% {
         transform: translateY(0);
+
+        50% {
+            transform: translateY(-10px);
+        }
+    }
+
+    @media (max-width: 768px) {
+        .container {
+            justify-content: flex-start;
+            /* Top align on mobile */
+            padding-top: calc(4rem + env(safe-area-inset-top));
+            /* More top space */
+        }
+
+        .card {
+            min-height: auto;
+            border: none;
+            background: transparent;
+            box-shadow: none;
+        }
+
+        .header {
+            padding-top: 0;
+        }
     }
 
     50% {
