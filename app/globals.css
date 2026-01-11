@@ -292,9 +292,12 @@ main,
   }
 }
 
-html {
-  height: 100%;
-  height: 100dvh;
+html,
+body {
+  height: auto;
+  min-height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 body {
@@ -305,8 +308,8 @@ body {
   line-height: var(--leading-normal);
   margin: 0;
   padding: 0;
-  min-height: 100%;
   min-height: 100dvh;
+  /* Ensure full viewport on mobile */
   display: flex;
   flex-direction: column;
   -webkit-font-smoothing: antialiased;
