@@ -142,15 +142,14 @@ export default function MemberDashboard() {
                                 }}>
                                 + Book New Session
                             </button>
-                        </button>
+                        </div>
+                    </div>
+
+                    <div style={{ marginTop: '2rem' }}>
+                        <ReferralCard />
                     </div>
                 </div>
-
-                <div style={{ marginTop: '2rem' }}>
-                    <ReferralCard />
-                </div>
             </div>
-        </div>
         </RouteGuard >
     );
 }
