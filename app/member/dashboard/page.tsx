@@ -103,7 +103,7 @@ export default function MemberDashboard() {
 
                         {/* Right Column */}
                         <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
-                            <ReferralCard />
+
                             <MoodRing />
                             <AdWidget
                                 title="Summer Shred Event"
@@ -148,10 +148,15 @@ export default function MemberDashboard() {
                                 }}>
                                 + Book New Session
                             </button>
-                        </div>
+                        </button>
                     </div>
                 </div>
+
+                <div style={{ marginTop: '2rem' }}>
+                    <ReferralCard />
+                </div>
             </div>
-        </RouteGuard>
+        </div>
+        </RouteGuard >
     );
 }
