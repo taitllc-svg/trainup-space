@@ -22,14 +22,20 @@
 
 .main {
   display: flex;
-  min-height: 100vh;
   width: 100%;
   max-width: 800px;
   flex-direction: column;
+  gap: 16px;
+
+  padding: 32px 20px;
+
+  min-height: auto;
+  /* ⬅ remove 100vh */
+  overflow-y: auto;
+  /* ⬅ critical */
   align-items: flex-start;
   justify-content: space-between;
   background-color: var(--foreground);
-  padding: 120px 60px;
 }
 
 .intro {
