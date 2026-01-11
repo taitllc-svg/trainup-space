@@ -84,12 +84,17 @@ export default function LoginPage() {
         <div className={styles.container}>
             <div className={styles.content}>
 
-                {/* Header Section */}
+                {/* Brand Moment (Top) */}
+                <div className={styles.brandSection}>
+                    <h1 className={styles.title}>TRAINUP</h1>
+                    <p className={styles.subtitle}>
+                        {showForm ? (isDemoMode ? 'Access Portal' : 'Welcome Back') : 'Select Your Journey'}
+                    </p>
+                </div>
+
+                {/* Role Selection State */}
                 {!showForm && (
                     <>
-                        <h1 className={styles.title}>TRAINUP</h1>
-                        <p className={styles.subtitle}>Select your access portal</p>
-
                         {isDemoMode && (
                             <div className={styles.demoBanner}>
                                 DEMO MODE ACTIVE
@@ -113,27 +118,23 @@ export default function LoginPage() {
                                         <span className={styles.roleName}>{item.label}</span>
                                         <span className={styles.roleDesc}>{item.desc}</span>
                                     </div>
-                                    <div className={styles.chevron}>→</div>
+                                    <div className={styles.chevron}>›</div>
                                 </div>
                             ))}
                         </div>
                     </>
                 )}
 
-                {/* Login Form Section (Animated) */}
+                {/* Login Form State */}
                 {showForm && (
                     <div className={styles.formContainer}>
                         {isDemoMode && (
                             <button className={styles.backBtn} onClick={() => setSelectedRole(null)}>
-                                ← Change Portal
+                                ← Change Role
                             </button>
                         )}
 
-                        <h2 className={styles.title} style={{ fontSize: '1.75rem', textAlign: 'left', marginBottom: '1.5rem' }}>
-                            {isDemoMode ? `Hello, ${roles.find(r => r.role === selectedRole)?.label}` : 'Welcome Back'}
-                        </h2>
-
-                        <form onSubmit={handleLoginSubmit}>
+                        <form onSubmit={handleLoginSubmit} style={{ display: 'flex', flexDirection: 'column', flex: 1 }}>
                             <div className={styles.inputGroup}>
                                 <label className={styles.label}>Email Access Key</label>
                                 <input
@@ -160,20 +161,23 @@ export default function LoginPage() {
                             </div>
 
                             {error && (
-                                <div style={{ color: '#ef4444', fontSize: '0.9rem', marginBottom: '1rem', padding: '0.75rem', background: 'rgba(239, 68, 68, 0.1)', borderRadius: '8px' }}>
+                                <div style={{ color: '#f87171', fontSize: '0.9rem', marginBottom: '1rem', textAlign: 'center', background: 'rgba(239, 68, 68, 0.1)', padding: '0.5rem', borderRadius: '8px' }}>
                                     {error}
                                 </div>
                             )}
 
-                            <button type="submit" className={styles.submitBtn} disabled={loading}>
-                                {loading ? 'AUTHENTICATING...' : 'ENTER PORTAL'}
-                            </button>
+                            {/* Pushed to Bottom */}
+                            <div className={styles.bottomActions}>
+                                <button type="submit" className={styles.submitBtn} disabled={loading}>
+                                    {loading ? 'AUTHENTICATING...' : 'ENTER PORTAL'}
+                                </button>
 
-                            {isDemoMode && (
-                                <p style={{ marginTop: '1.5rem', textAlign: 'center', fontSize: '0.85rem', color: '#64748b' }}>
-                                    Demo Environment: Any credentials accepted.
-                                </p>
-                            )}
+                                {isDemoMode && (
+                                    <div style={{ textAlign: 'center', fontSize: '0.8rem', color: '#64748b' }}>
+                                        Demo: Use any credentials
+                                    </div>
+                                )}
+                            </div>
                         </form>
                     </div>
                 )}
