@@ -1,24 +1,100 @@
 :root {
-  /* Premium Dark Grey Theme */
-  --background: #1c1c1e;
-  /* Deep Charcoal (Not Black) */
-  --foreground: #f2f2f2;
-  /* Off-White */
-  --card-bg: #2c2c2e;
+  /* ========================================================================
+     TRAINUP PREMIUM DESIGN TOKENS
+     Theme: "Dark Charcoal & Cyber Teal"
+     ======================================================================== */
+
+  /* --- 01. CORE PALETTE (Base Values) --- */
+  /* Neutrals (Charcoal Scale) */
+  --neutral-900: #161618;
+  /* Deepest background */
+  --neutral-800: #1c1c1e;
+  /* Main background */
+  --neutral-700: #252527;
+  /* Surface */
+  --neutral-600: #2e2e30;
   /* Elevated Surface */
-  --border: #3a3a3c;
-  /* Subtle darker border */
+  --neutral-500: #3a3a3c;
+  /* Borders */
+  --neutral-400: #55555a;
+  /* Disabled/Muted */
+  --neutral-300: #9ca3af;
+  /* Secondary Text */
+  --neutral-100: #f2f2f2;
+  /* Primary Text */
+  --neutral-050: #ffffff;
+  /* Absolute White */
 
-  /* Calm Accents */
-  --primary: #5eead4;
-  /* Muted Teal (Teal-300) */
-  --primary-glow: rgba(94, 234, 212, 0.15);
-  --secondary: #9ca3af;
-  /* Cool Grey */
-  --accent: #f87171;
-  /* Muted Red */
+  /* Accents (Teal Scale) */
+  --teal-900: #042f2e;
+  --teal-500: #14b8a6;
+  --teal-400: #2dd4bf;
+  /* Primary Brand Color */
+  --teal-300: #5eead4;
+  /* Hover/Glow */
+  --teal-100: #ccfbf1;
 
+  /* Functional Colors */
+  --color-success: #34d399;
+  /* Emerald 400 */
+  --color-warning: #fbbf24;
+  /* Amber 400 */
+  --color-error: #f87171;
+  /* Red 400 */
+  --color-info: #60a5fa;
+  /* Blue 400 */
+
+  /* --- 02. SEMANTIC TOKENS (Usage) --- */
+
+  /* Backgrounds & Surfaces */
+  --background: var(--neutral-800);
+  /* Main App Background */
+  --bg-subtle: var(--neutral-900);
+  /* Darker regions (sidebars) */
+  --card-bg: var(--neutral-600);
+  /* Cards/Panels */
+  --surface-elevated: #363639;
+  /* Dropdowns/Modals */
+
+  /* Text & Content */
+  --foreground: var(--neutral-100);
+  /* Primary Text */
+  --text-secondary: var(--neutral-300);
+  /* Subtitles, hints */
+  --text-muted: var(--neutral-400);
+  /* Disabled text */
+  --text-inverse: #0f172a;
+  /* Dark text for on-teal buttons */
+
+  /* Borders & Dividers */
+  --border: var(--neutral-500);
+  /* Standard borders */
+  --border-subtle: rgba(255, 255, 255, 0.06);
+  --border-focus: var(--teal-400);
+
+  /* Brand Action Colors */
+  --primary: var(--teal-400);
+  /* Main Action */
+  --primary-hover: var(--teal-300);
+  --primary-glow: rgba(45, 212, 191, 0.2);
+  /* Soft Glow */
+
+  /* Secondary Actions */
+  --secondary: var(--neutral-300);
+  --accent: var(--color-error);
+
+  /* Status Indicators */
+  --status-success: var(--color-success);
+  --status-warning: var(--color-warning);
+  --status-error: var(--color-error);
+  --status-info: var(--color-info);
+
+  /* --- 03. COMPONENT VARIABLES --- */
   --header-height: 70px;
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 18px;
+  --radius-pill: 999px;
 
   /* Typography */
   --font-orbitron: 'Orbitron', sans-serif;
