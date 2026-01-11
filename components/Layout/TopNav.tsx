@@ -36,6 +36,8 @@ const TopNav = () => {
         user && link.roles.includes(user.role)
     );
 
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+
     const [showNotifications, setShowNotifications] = useState(false);
     const notifications = [
         { id: 1, text: "Sarah J. confirmed your booking.", time: "2m ago", unread: true },
@@ -45,16 +47,31 @@ const TopNav = () => {
 
     return (
         <nav className={styles.nav}>
-            <div className={styles.logo}>
-                <Link href="/">Trainup.space</Link>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                {/* Mobile Hamburger */}
+                {user && (
+                    <button
+                        className={styles.menuBtn}
+                        onClick={() => setIsMenuOpen(!isMenuOpen)}
+                        aria-label="Toggle menu"
+                    >
+                        {isMenuOpen ? '✕' : '☰'}
+                    </button>
+                )}
+
+                <div className={styles.logo}>
+                    <Link href="/">Trainup.space</Link>
+                </div>
             </div>
 
-            <div className={styles.links}>
+            {/* Links Section - Toggles on Mobile */}
+            <div className={`${styles.links} ${isMenuOpen ? styles.open : ''}`}>
                 {user && visibleLinks.map((link) => (
                     <Link
                         key={link.href}
                         href={link.href}
                         className={`${styles.link} ${pathname.startsWith(link.href) ? styles.active : ''}`}
+                        onClick={() => setIsMenuOpen(false)} // Close on click
                     >
                         {link.label}
                     </Link>
@@ -107,7 +124,7 @@ const TopNav = () => {
                         </div>
 
                         <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-                            <span style={{ fontSize: '0.8rem', color: 'var(--secondary)', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+                            <span className={styles.roleBadge} style={{ fontSize: '0.8rem', color: 'var(--secondary)', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
                                 {user.role}
                             </span>
                             <button onClick={handleLogout} className={styles.logoutBtn} style={{ background: 'none', border: 'none', color: 'var(--primary)', cursor: 'pointer', fontWeight: 500 }}>

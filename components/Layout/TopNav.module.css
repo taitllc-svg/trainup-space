@@ -123,3 +123,83 @@
 .dropdownItem:last-child {
     border-bottom: none;
 }
+
+/* Mobile Menu Button */
+.menuBtn {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    color: var(--foreground);
+    z-index: 102;
+}
+
+/* Responsive Breakpoint */
+@media (max-width: 768px) {
+    .nav {
+        padding: 0 1rem;
+    }
+
+    .menuBtn {
+        display: block;
+    }
+
+    .links {
+        position: fixed;
+        top: var(--header-height);
+        left: 0;
+        right: 0;
+        background: var(--card-bg);
+        flex-direction: column;
+        gap: 0;
+        border-bottom: 1px solid var(--border);
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        display: none;
+        /* Hidden by default on mobile */
+        z-index: 99;
+    }
+
+    .links.open {
+        display: flex;
+        animation: slideDown 0.2s ease-out;
+    }
+
+    .link {
+        padding: 1rem 1.5rem;
+        border-bottom: 1px solid #f3f4f6;
+        width: 100%;
+        display: block;
+    }
+
+    .link:last-child {
+        border-bottom: none;
+    }
+
+    /* Adjust Actions for Mobile */
+    .actions {
+        gap: 0.5rem;
+    }
+
+    .logoutBtn {
+        font-size: 0.8rem;
+    }
+
+    /* Hide role badge on very small screens to save space */
+    .roleBadge {
+        display: none;
+    }
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
