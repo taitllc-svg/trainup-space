@@ -5,6 +5,7 @@ import PageHeader from '@/components/PageHeader/PageHeader';
 import TrainerCard from '@/components/Marketplace/TrainerCard';
 import TrainerFilters from '@/components/Marketplace/TrainerFilters';
 import { mockStore, Trainer } from '@/utils/mockStore';
+import Skeleton from '@/components/UI/Skeleton';
 
 // Simple Gym Card Component for Phase 2
 const GymCard = ({ gym }: any) => (
@@ -36,9 +37,15 @@ export default function MarketplacePage() {
     const [search, setSearch] = useState('');
     const [location, setLocation] = useState('All');
     const [selectedSpecialties, setSelectedSpecialties] = useState<string[]>([]);
+    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
-        setTrainers(mockStore.getTrainers());
+        // Simulate network delay for "Native App" feel
+        const timer = setTimeout(() => {
+            setTrainers(mockStore.getTrainers());
+            setIsLoading(false);
+        }, 800);
+        return () => clearTimeout(timer);
     }, []);
 
     // Mock Gym Data
@@ -125,14 +132,30 @@ export default function MarketplacePage() {
                         gap: '1.5rem',
                         padding: '0 1rem'
                     }}>
-                        {filteredTrainers.length > 0 ? (
-                            filteredTrainers.map(trainer => (
-                                <TrainerCard key={trainer.id} trainer={trainer} />
+                        {isLoading ? (
+                            Array(6).fill(0).map((_, i) => (
+                                <div key={i} style={{ height: '420px', background: 'var(--card-bg)', borderRadius: '16px', overflow: 'hidden', border: '1px solid var(--border)' }}>
+                                    <Skeleton width="100%" height="220px" />
+                                    <div style={{ padding: '1.5rem', display: 'flex', flexDirection: 'column', gap: '0.8rem' }}>
+                                        <Skeleton width="70%" height="28px" borderRadius="6px" />
+                                        <Skeleton width="40%" height="20px" borderRadius="4px" />
+                                        <div style={{ marginTop: '1rem', display: 'flex', gap: '0.5rem' }}>
+                                            <Skeleton width="25%" height="24px" borderRadius="100px" />
+                                            <Skeleton width="25%" height="24px" borderRadius="100px" />
+                                        </div>
+                                    </div>
+                                </div>
                             ))
                         ) : (
-                            <div style={{ gridColumn: '1/-1', textAlign: 'center', padding: '3rem', color: 'var(--secondary)' }}>
-                                No trainers found matching your criteria.
-                            </div>
+                            filteredTrainers.length > 0 ? (
+                                filteredTrainers.map(trainer => (
+                                    <TrainerCard key={trainer.id} trainer={trainer} />
+                                ))
+                            ) : (
+                                <div style={{ gridColumn: '1/-1', textAlign: 'center', padding: '3rem', color: 'var(--secondary)' }}>
+                                    No trainers found matching your criteria.
+                                </div>
+                            )
                         )}
                     </div>
                 </>

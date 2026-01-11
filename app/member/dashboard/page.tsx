@@ -11,6 +11,7 @@ import MoodRing from '@/components/Dashboard/MoodRing';
 import LiveSessionCard from '@/components/Dashboard/LiveSessionCard';
 import ReferralCard from '@/components/Growth/ReferralCard';
 import AdWidget from '@/components/Monetization/AdWidget';
+import Skeleton from '@/components/UI/Skeleton';
 
 // ... imports
 import RouteGuard from '@/components/Auth/RouteGuard';
@@ -18,6 +19,13 @@ import RouteGuard from '@/components/Auth/RouteGuard';
 export default function MemberDashboard() {
     const { user } = useAuth();
     const router = useRouter();
+    const [isLoading, setIsLoading] = React.useState(true);
+
+    React.useEffect(() => {
+        // Mock loading time
+        const timer = setTimeout(() => setIsLoading(false), 1000);
+        return () => clearTimeout(timer);
+    }, []);
 
     // Safety check mostly for demo context
     // if (!user) return <div style={{ minHeight: '100vh', background: '#f9fafb' }}></div>; // RouteGuard handles this now
@@ -37,13 +45,21 @@ export default function MemberDashboard() {
                     </div>
 
                     {/* ... rest of the dashboard ... */}
-                    {/* Re-using exact existing layout, just wrapped */}
+                    {/* Hero Stats */}
                     <div style={{ marginBottom: '2.5rem' }}>
-                        <HeroStats stats={[
-                            { label: "Weekly Sessions", value: "4", sub: "On track for 5", icon: "🔥", color: "#f59e0b", href: "/booking" },
-                            { label: "Active Trainers", value: "12", sub: "+3 new this week", icon: "👥", color: "#3b82f6", href: "/marketplace" },
-                            { label: "Global Rank", value: "#42", sub: "Top 5% of members", icon: "🏆", color: "#8b5cf6", href: "/competition" }
-                        ]} />
+                        {isLoading ? (
+                            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '1.5rem' }}>
+                                <Skeleton height="140px" borderRadius="16px" />
+                                <Skeleton height="140px" borderRadius="16px" />
+                                <Skeleton height="140px" borderRadius="16px" />
+                            </div>
+                        ) : (
+                            <HeroStats stats={[
+                                { label: "Weekly Sessions", value: "4", sub: "On track for 5", icon: "🔥", color: "#f59e0b", href: "/booking" },
+                                { label: "Active Trainers", value: "12", sub: "+3 new this week", icon: "👥", color: "#3b82f6", href: "/marketplace" },
+                                { label: "Global Rank", value: "#42", sub: "Top 5% of members", icon: "🏆", color: "#8b5cf6", href: "/competition" }
+                            ]} />
+                        )}
                     </div>
 
                     <div style={{
