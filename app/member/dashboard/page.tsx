@@ -8,7 +8,7 @@ import { useRouter } from 'next/navigation';
 // New Components
 import HeroStats from '@/components/Dashboard/HeroStats';
 import MoodRing from '@/components/Dashboard/MoodRing';
-import LiveSessionCard from '@/components/Dashboard/LiveSessionCard';
+
 import ReferralCard from '@/components/Growth/ReferralCard';
 import AdWidget from '@/components/Monetization/AdWidget';
 import Skeleton from '@/components/UI/Skeleton';
@@ -70,9 +70,7 @@ export default function MemberDashboard() {
                     }}>
                         {/* Left Column */}
                         <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
-                            <div style={{ height: 'auto', minHeight: '340px' }}>
-                                <LiveSessionCard />
-                            </div>
+
                             <div>
                                 <h3 style={{ fontSize: '1.25rem', fontWeight: 700, marginBottom: '1rem', color: '#1f2937' }}>Today&apos;s Schedule</h3>
                                 <div style={{
