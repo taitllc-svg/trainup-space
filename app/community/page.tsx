@@ -117,7 +117,9 @@ export default function CommunityPage() {
                         padding: '1.5rem',
                         marginBottom: '1.5rem',
                         border: '1px solid #f0f0f0',
-                        boxShadow: '0 2px 4px rgba(0,0,0,0.02)'
+                        boxShadow: '0 2px 4px rgba(0,0,0,0.02)',
+                        width: '100%',
+                        maxWidth: '100%'
                     }}>
                         {/* Post Header */}
                         <div style={{ display: 'flex', alignItems: 'center', marginBottom: '1rem' }}>
