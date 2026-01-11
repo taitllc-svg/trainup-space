@@ -7,7 +7,7 @@
     flex-direction: column;
     padding: 0;
     padding-top: env(safe-area-inset-top);
-    padding-bottom: env(safe-area-inset-bottom);
+    padding-bottom: calc(1rem + env(safe-area-inset-bottom));
     /* Remove default padding to control full width */
     background: linear-gradient(180deg, #1e2025 0%, #111317 100%);
     position: relative;
