@@ -200,17 +200,7 @@ export default function TrainerDashboard() {
 
                         {/* Sidebar */}
                         <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
-                            <div style={{ padding: '2rem', background: 'linear-gradient(135deg, #1e293b 0%, #0f172a 100%)', borderRadius: '24px', color: 'white', position: 'relative', overflow: 'hidden' }}>
-                                <div style={{ position: 'relative', zIndex: 1 }}>
-                                    <h4 style={{ margin: '0 0 1rem 0', fontSize: '1.1rem', fontWeight: 700 }}>Upgrade to Pro</h4>
-                                    <p style={{ fontSize: '0.9rem', opacity: 0.8, marginBottom: '1.5rem', lineHeight: '1.6' }}>
-                                        Unlock advanced analytics, automated invoicing, and unlimited client slots.
-                                    </p>
-                                    <button style={{ width: '100%', padding: '0.75rem', background: 'white', color: '#0f172a', border: 'none', borderRadius: '12px', cursor: 'pointer', fontSize: '0.9rem', fontWeight: 700 }}>
-                                        View Plans &rarr;
-                                    </button>
-                                </div>
-                            </div>
+
 
                             <div style={{ padding: '1.5rem', background: 'white', borderRadius: '16px', border: '1px solid #f3f4f6', boxShadow: '0 4px 6px -1px rgba(0,0,0,0.02)' }}>
                                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>
