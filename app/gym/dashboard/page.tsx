@@ -3,7 +3,7 @@
 import React from 'react';
 import RouteGuard from '@/components/Auth/RouteGuard';
 import HeroStats, { HeroStat } from '@/components/Dashboard/HeroStats';
-import { AreaChart, Area, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid, BarChart, Bar, Cell } from 'recharts';
+import { AreaChart, Area, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid } from 'recharts';
 import { useAuth } from '@/lib/auth-context';
 
 const mockTraffic = [
