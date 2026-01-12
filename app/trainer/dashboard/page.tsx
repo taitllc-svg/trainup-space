@@ -6,7 +6,6 @@ import DashboardGrid from '@/components/Dashboard/DashboardGrid';
 import HeroStats, { HeroStat } from '@/components/Dashboard/HeroStats';
 import { getTrainerBookings, updateBookingStatus } from '@/app/actions/booking';
 import { useAuth } from '@/lib/auth-context';
-import { useRouter } from 'next/navigation';
 import {
     AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer
 } from 'recharts';

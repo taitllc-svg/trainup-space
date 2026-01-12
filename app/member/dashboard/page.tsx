@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
-import PageHeader from '@/components/PageHeader/PageHeader';
 import { useAuth } from '@/lib/auth-context';
 import { useRouter } from 'next/navigation';
 
@@ -118,7 +117,7 @@ export default function MemberDashboard() {
                                 </div>
                             </div>
                             <button
-                                onClick={() => router.push('/marketplace')}
+                                onClick={() => window.location.href = '/marketplace'}
                                 style={{
                                     background: 'white', color: '#4f46e5', border: '2px dashed #c7d2fe',
                                     padding: '1rem', borderRadius: '12px', fontWeight: 700, cursor: 'pointer',
