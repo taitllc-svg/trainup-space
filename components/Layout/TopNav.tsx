@@ -95,12 +95,12 @@ const TopNav = () => {
                                 <div className={styles.dropdown}>
                                     <div className={styles.dropdownHeader}>
                                         <span>Notifications</span>
-                                        <span style={{ fontSize: '0.75rem', color: '#3b82f6', cursor: 'pointer' }}>Mark all read</span>
+                                        <span className={styles.markRead}>Mark all read</span>
                                     </div>
                                     {notifications.map(n => (
                                         <div key={n.id} className={styles.dropdownItem}>
-                                            <p style={{ margin: 0, fontSize: '0.9rem', fontWeight: n.unread ? 600 : 400 }}>{n.text}</p>
-                                            <span style={{ fontSize: '0.75rem', color: '#9ca3af' }}>{n.time}</span>
+                                            <p style={{ margin: 0, fontSize: '0.9rem', color: 'var(--foreground)', fontWeight: n.unread ? 600 : 400 }}>{n.text}</p>
+                                            <span className={styles.timestamp}>{n.time}</span>
                                         </div>
                                     ))}
                                 </div>

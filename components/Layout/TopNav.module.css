@@ -88,10 +88,11 @@
     border-radius: 50%;
     position: relative;
     transition: background 0.2s;
+    color: var(--foreground);
 }
 
 .iconBtn:hover {
-    background: #f3f4f6;
+    background: rgba(255, 255, 255, 0.1);
 }
 
 .notificationBadge {
@@ -102,7 +103,7 @@
     height: 8px;
     background: #ef4444;
     border-radius: 50%;
-    border: 2px solid white;
+    border: 2px solid var(--neutral-800);
 }
 
 .dropdown {
@@ -110,10 +111,10 @@
     top: 100%;
     right: 0;
     width: 320px;
-    background: white;
-    border: 1px solid #e5e7eb;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
     border-radius: 0.75rem;
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
     margin-top: 0.5rem;
     overflow: hidden;
     z-index: 101;
@@ -121,26 +122,40 @@
 
 .dropdownHeader {
     padding: 1rem;
-    border-bottom: 1px solid #f3f4f6;
+    border-bottom: 1px solid var(--border);
     display: flex;
     justify-content: space-between;
     align-items: center;
     font-weight: 600;
     font-size: 0.9rem;
+    color: var(--foreground);
+}
+
+.markRead {
+    font-size: 0.75rem;
+    color: var(--primary);
+    cursor: pointer;
 }
 
 .dropdownItem {
     padding: 0.75rem 1rem;
-    border-bottom: 1px solid #f3f4f6;
+    border-bottom: 1px solid var(--border);
     transition: background 0.2s;
 }
 
 .dropdownItem:hover {
-    background: #f9fafb;
+    background: rgba(255, 255, 255, 0.04);
 }
 
 .dropdownItem:last-child {
     border-bottom: none;
+}
+
+.timestamp {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    display: block;
+    margin-top: 0.25rem;
 }
 
 /* Mobile Menu Button */
