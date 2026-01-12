@@ -224,6 +224,7 @@ button,
   font-weight: 700;
   letter-spacing: .02em;
   border: 1px solid transparent;
+  white-space: nowrap;
 }
 
 /* Use this class on Enter Portal (recommended) */

@@ -76,7 +76,6 @@ const TopNav = () => {
                         {link.label}
                     </Link>
                 ))}
-                ))}
                 {user && (
                     <button
                         onClick={() => {
