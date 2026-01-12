@@ -162,6 +162,10 @@
     margin-top: 0.25rem;
 }
 
+.mobileCloseBtn {
+    display: none;
+}
+
 /* Mobile Menu Button */
 .menuBtn {
     display: none;
@@ -277,29 +281,39 @@
     animation: fadeIn 0.2s ease-out;
 }
 
-@media (max-width: 768px) {
-    .dropdown {
-        position: fixed;
-        top: auto;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        width: 100%;
-        margin: 0;
-        border-radius: 20px 20px 0 0;
-        max-height: 80vh;
-        animation: slideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-        border: none;
-        border-top: 1px solid var(--border);
+.dropdown {
+    position: fixed;
+    top: auto;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100vw;
+    max-width: 100%;
+    margin: 0;
+    border-radius: 20px 20px 0 0;
+    max-height: 80vh;
+    animation: slideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    border: none;
+    border-top: 1px solid var(--border);
+}
+
+.mobileCloseBtn {
+    display: block;
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    padding: 0.25rem 0.5rem;
+    cursor: pointer;
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(100%);
     }
 
-    @keyframes slideUp {
-        from {
-            transform: translateY(100%);
-        }
-
-        to {
-            transform: translateY(0);
-        }
+    to {
+        transform: translateY(0);
     }
+}
 }

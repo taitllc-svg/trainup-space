@@ -108,7 +108,15 @@ const TopNav = () => {
                                     <div className={styles.overlay} onClick={() => setShowNotifications(false)} />
                                     <div className={styles.dropdown}>
                                         <div className={styles.dropdownHeader}>
-                                            <span>Notifications</span>
+                                            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                                                <span>Notifications</span>
+                                                <button
+                                                    className={styles.mobileCloseBtn}
+                                                    onClick={() => setShowNotifications(false)}
+                                                >
+                                                    ✕
+                                                </button>
+                                            </div>
                                             <span className={styles.markRead}>Mark all read</span>
                                         </div>
                                         {notifications.map(n => (
