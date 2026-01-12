@@ -268,52 +268,63 @@
     transform-origin: top right;
 }
 
-/* Mobile Overlay */
+/* Overlay (Click Catcher - Desktop) */
 .overlay {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(2px);
+    background: transparent;
     z-index: 90;
-    animation: fadeIn 0.2s ease-out;
+    cursor: default;
 }
 
-.dropdown {
-    position: fixed;
-    top: auto;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    width: 100vw;
-    max-width: 100%;
-    margin: 0;
-    border-radius: 20px 20px 0 0;
-    max-height: 80vh;
-    animation: slideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-    border: none;
-    border-top: 1px solid var(--border);
-}
+@media (max-width: 768px) {
 
-.mobileCloseBtn {
-    display: block;
-    background: none;
-    border: none;
-    color: var(--text-secondary);
-    font-size: 1.1rem;
-    padding: 0.25rem 0.5rem;
-    cursor: pointer;
-}
-
-@keyframes slideUp {
-    from {
-        transform: translateY(100%);
+    /* Mobile Overlay (Dimmed) */
+    .overlay {
+        background: rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(2px);
+        animation: fadeIn 0.2s ease-out;
     }
 
-    to {
-        transform: translateY(0);
+    /* Mobile Bottom Sheet Dropdown */
+    .dropdown {
+        position: fixed;
+        top: auto;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        width: 100vw;
+        max-width: 100%;
+        margin: 0;
+        border-radius: 20px 20px 0 0;
+        max-height: 80vh;
+        animation: slideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        border: none;
+        border-top: 1px solid var(--border);
+        box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.5);
     }
-}
+
+    /* Close Button Visible */
+    .mobileCloseBtn {
+        display: block;
+        background: none;
+        border: none;
+        color: var(--text-secondary);
+        font-size: 1.1rem;
+        padding: 0.25rem 0.5rem;
+        cursor: pointer;
+    }
+
+    @keyframes slideUp {
+        from {
+            transform: translateY(100%);
+        }
+
+        to {
+            transform: translateY(0);
+        }
+    }
 }
