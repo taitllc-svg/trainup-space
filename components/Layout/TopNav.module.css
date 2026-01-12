@@ -227,7 +227,7 @@
     }
 
     .logoutBtn {
-        font-size: 0.8rem;
+        display: none;
     }
 
     /* Hide role badge on very small screens to save space */

@@ -76,6 +76,19 @@ const TopNav = () => {
                         {link.label}
                     </Link>
                 ))}
+                ))}
+                {user && (
+                    <button
+                        onClick={() => {
+                            handleLogout();
+                            setIsMenuOpen(false);
+                        }}
+                        className={styles.link}
+                        style={{ textAlign: 'left', background: 'none', border: 'none', cursor: 'pointer', borderBottom: 'none', color: '#ef4444' }}
+                    >
+                        Logout
+                    </button>
+                )}
             </div>
 
             <div className={styles.actions}>
