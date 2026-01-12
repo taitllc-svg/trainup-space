@@ -118,6 +118,10 @@
     margin-top: 0.5rem;
     overflow: hidden;
     z-index: 101;
+    max-height: calc(100vh - var(--header-height) - 1rem);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    padding-bottom: env(safe-area-inset-bottom);
 }
 
 .dropdownHeader {
