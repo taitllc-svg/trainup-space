@@ -104,18 +104,21 @@ const TopNav = () => {
                             </button>
 
                             {showNotifications && (
-                                <div className={styles.dropdown}>
-                                    <div className={styles.dropdownHeader}>
-                                        <span>Notifications</span>
-                                        <span className={styles.markRead}>Mark all read</span>
-                                    </div>
-                                    {notifications.map(n => (
-                                        <div key={n.id} className={styles.dropdownItem}>
-                                            <p style={{ margin: 0, fontSize: '0.9rem', color: 'var(--foreground)', fontWeight: n.unread ? 600 : 400 }}>{n.text}</p>
-                                            <span className={styles.timestamp}>{n.time}</span>
+                                <>
+                                    <div className={styles.overlay} onClick={() => setShowNotifications(false)} />
+                                    <div className={styles.dropdown}>
+                                        <div className={styles.dropdownHeader}>
+                                            <span>Notifications</span>
+                                            <span className={styles.markRead}>Mark all read</span>
                                         </div>
-                                    ))}
-                                </div>
+                                        {notifications.map(n => (
+                                            <div key={n.id} className={styles.dropdownItem}>
+                                                <p style={{ margin: 0, fontSize: '0.9rem', color: 'var(--foreground)', fontWeight: n.unread ? 600 : 400 }}>{n.text}</p>
+                                                <span className={styles.timestamp}>{n.time}</span>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </>
                             )}
                         </div>
 
