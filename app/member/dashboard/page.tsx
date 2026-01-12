@@ -106,23 +106,7 @@ export default function MemberDashboard() {
 
                             <MoodRing />
 
-                            <div style={{ background: 'white', borderRadius: '16px', padding: '1.5rem', border: '1px solid #f3f4f6' }}>
-                                <h4 style={{ margin: '0 0 1rem 0', fontSize: '1rem', fontWeight: 700 }}>Member Perks 💎</h4>
-                                <ul style={{ padding: 0, margin: 0, listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
-                                    <li style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.9rem' }}>
-                                        <span>🍏 Local Juice Bar</span>
-                                        <span style={{ color: '#10b981', fontWeight: 600 }}>20% Off</span>
-                                    </li>
-                                    <li style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.9rem' }}>
-                                        <span>💆‍♀️ Zen Spa</span>
-                                        <span style={{ color: '#10b981', fontWeight: 600 }}>Free Add-on</span>
-                                    </li>
-                                    <li style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.9rem' }}>
-                                        <span>👟 Nike Town</span>
-                                        <span style={{ color: '#10b981', fontWeight: 600 }}>10% Off</span>
-                                    </li>
-                                </ul>
-                            </div>
+
                             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
                                 <div style={{ background: '#4f46e5', padding: '1.25rem', borderRadius: '16px', color: 'white' }}>
                                     <div style={{ fontSize: '2rem', fontWeight: 700 }}>12</div>
